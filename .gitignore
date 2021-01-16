@@ -1,3 +1,5 @@
 /.vscode
 /singleton/bin
 /singleton/obj
+/prototype/bin
+/prototype/obj
