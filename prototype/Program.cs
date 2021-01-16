@@ -7,21 +7,25 @@ namespace prototype
         static void Main(string[] args)
         {
             Console.WriteLine("Hello prototype!");
-            Mascot marshal = new Mascot("Marshal", 4);
+            Console.WriteLine("Shallow Prototype Pattern...");
+            Mascot dolly = new Mascot("Dolly", "Sheep", 4);
             // Bad clone
-            Mascot sky = marshal;
+            Mascot sky = dolly;
             // Right clone
-            Mascot everest = marshal.Clone() as Mascot;
+            Mascot everest = dolly.Clone() as Mascot;
             sky.Name = "Sky";
+            sky.Species = "Dog";
             everest.Name = "Everest";
-            PrintMascot(marshal);
-            PrintMascot(sky);
-            PrintMascot(everest);
+            everest.Species = "Dog";
+            PrintMascot(nameof(dolly), dolly);
+            PrintMascot(nameof(sky), sky);
+            PrintMascot(nameof(everest), everest);
         }
 
-        static void PrintMascot(Mascot mascot)
+        static void PrintMascot(string instaceName, Mascot mascot)
         {
-            Console.WriteLine($"I'm {mascot.Name}");
+            Console.WriteLine($"{instaceName.ToUpper()} says:");
+            Console.WriteLine($" » I'm a {mascot.Species} called {mascot.Name} and I've {mascot.Paws} paws.");
         }
     }
 }
