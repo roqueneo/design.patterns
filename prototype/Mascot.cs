@@ -17,15 +17,27 @@ namespace prototype
         
         public string Name { get; set; }
 
+        public Vehicle Vehicle { get; set; }
+
+        public bool HasVehicle()
+            => Vehicle != null;
+
         public object Clone()
         {
-            return MemberwiseClone();
+            Mascot clone = MemberwiseClone() as Mascot;
+            if (HasVehicle())
+                clone.Vehicle = Vehicle.Clone() as Vehicle;
+            return clone;
         }
     }
 
-    public class Vehicle
+    public class Vehicle : ICloneable
     {
         public string Type { get; set; }
+
         public string Color { get; set; }
+
+        public object Clone()
+            => MemberwiseClone();
     }
 }
