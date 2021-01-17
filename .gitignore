@@ -1,5 +1,9 @@
 /.vscode
-/singleton/bin
-/singleton/obj
+/factory.method/bin
+/factory.method/obj
 /prototype/bin
 /prototype/obj
+/singleton/bin
+/singleton/obj
+
+
